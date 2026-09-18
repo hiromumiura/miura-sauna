@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFNLS3T682"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JFNLS3T682');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miura -SAUNA-</title>
+
+    <style>
+        /* ページ全体の基本設定 */
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+            color: #333;
+            background-color: #fafafa;
+            line-height: 1.8;
+        }
+
+        /* -------------------------
+           ヘッダーエリア
+        ------------------------- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            gap: 40px; /* PC表示でもロゴとメニューの間に最低40pxの空間をあける */
+        }
+
+        /* ロゴ部分（画像のみ） */
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo-img {
+            height: 40px; /* ロゴ画像の高さを指定（調整可能） */
+            width: auto;
+        }
+
+        /* ヘッダーの右側メニュー */
+        .header-nav {
+            display: flex;
+            gap: 30px;
+        }
+        .header-nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .header-nav a span {
+            display: block;
+            font-size: 0.6rem;
+            font-weight: normal;
+            color: #888;
+            margin-top: 3px;
+        }
+
+        /* -------------------------
+           メインビジュアル
+        ------------------------- */
+        .hero {
+            height: 80vh; 
+            background-color: #555; 
+            background-image: url('main_sauna.jpeg'); /* メイン画像 */
+            background-size: cover; 
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 10%; 
+            color: #fff;
+        }
+        .hero-content h1 {
+            font-size: 2.8rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        .btn-white {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #fff;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            transition: opacity 0.3s;
+        }
+        .btn-white:hover {
+            opacity: 0.8;
+        }
+
+        /* -------------------------
+           体験セクション (3カラム)
+        ------------------------- */
+        .experience {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 50px;
+            letter-spacing: 0.1em;
+        }
+        .section-title span {
+            display: block;
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 5px;
+        }
+        
+        .grid-3 {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .grid-item {
+            width: 32%;
+        }
+        .grid-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            background-color: #eee;
+        }
+        .grid-item h3 {
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+        }
+        .grid-item h3 span.num {
+            font-size: 1.5rem;
+            color: #888;
+        }
+        .grid-item p {
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        /* -------------------------
+           コンタクト・フッター
+        ------------------------- */
+        .contact-area {
+            background-color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .btn-wrap {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+        }
+        .btn-insta {
+            background-color: #E1306C;
+        }
+        .btn:hover {
+            opacity: 0.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #222;
+            color: #ccc;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* -------------------------
+           スマホ(SP)向けのレイアウト調整
+        ------------------------- */
+        @media (max-width: 768px) {
+            /* ヘッダーを縦並びにして、ロゴとメニューの間に余白を作る */
+            header {
+                flex-direction: column;
+                padding: 15px 10px;
+                gap: 15px; 
+            }
+            .header-nav {
+                width: 100%;
+                justify-content: center;
+                gap: 15px;
+            }
+            .header-nav a {
+                font-size: 0.75rem;
+            }
+            .header-nav a span {
+                font-size: 0.5rem;
+            }
+            
+            /* メインビジュアルの文字サイズを少し小さく */
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            /* 3カラムの写真を縦並びにする */
+            .grid-3 {
+                flex-direction: column;
+            }
+            .grid-item {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ヘッダー -->
+    <header>
+        <!-- 文字を削除し、画像のみにしました -->
+        <a href="#" class="logo-wrap">
+            <img src="MiuraSAUNA_logo.jpeg" alt="ロゴ" class="logo-img">
+        </a>
+        
+        <!-- ナビゲーションメニュー -->
+        <nav class="header-nav">
+            <a href="#">施設紹介<br><span>FACILITY</span></a>
+            <a href="#">サウナ<br><span>SAUNA</span></a>
+            <a href="#">お風呂と水風呂<br><span>BATH & COLD PLUNGE</span></a>
+            <a href="#">料金・予約<br><span>PRICE & RESERVE</span></a>
+        </nav>
+    </header>
+
+    <!-- メインビジュアル -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>海と光、自然に身をゆだねる、<br>究極のととのい。</h1>
+            <p>三浦の海辺、心身を解き放つ。Miura -SAUNA-.</p>
+            <a href="#" class="btn-white">ご予約 / BOOK NOW</a>
+        </div>
+    </section>
+
+    <!-- 体験セクション (3カラム) -->
+    <section class="experience">
+        <h2 class="section-title">Miuraの“ととのい”体験<span>THE MIURA EXPERIENCE</span></h2>
+        
+        <div class="grid-3">
+            <div class="grid-item">
+                <img src="sauna-ocean.jpeg" alt="海の見えるサウナ">
+                <h3><span class="num">1</span> 海の見えるサウナ</h3>
+                <p>海が見えるサウナ。磯の香りの良さを感じながら、極上のリラックス体験を提供します。</p>
+            </div>
+            <div class="grid-item">
+                <img src="sauna-wave.jpeg" alt="波音の外気浴">
+                <h3><span class="num">2</span> 波音の外気浴</h3>
+                <p>波音が心地よい屋外での外気浴。大自然の風を感じながら、心身をととのえます。</p>
+            </div>
+            <div class="grid-item">
+                <img src="sauna-food.jpeg" alt="地元の恵み">
+                <h3><span class="num">3</span> 地元の恵み</h3>
+                <p>地元三浦の新鮮な食材を使ったサウナ飯。サウナ後の身体に染み渡る美味しさです。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- コンタクトエリア -->
+    <section class="contact-area">
+        <h2 class="section-title">CONTACT / SNS</h2>
+        <p>最新情報のお届けや、お問い合わせはこちらから。</p>
+        
+        <div class="btn-wrap">
+            <a href="https://www.instagram.com/miurahiromu?stkn=MXJldDQ2YjgxZWR2cA%3D%3D&utm_source=qr" target="_blank" class="btn btn-insta">Instagramを見る</a>
+            <a href="mailto:kazoku.gasukinahito.232@gmail.com" class="btn">メールで問い合わせる</a>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        &copy; 2026 Miura -SAUNA-. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
