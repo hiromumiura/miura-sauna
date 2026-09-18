@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFNLS3T682"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JFNLS3T682');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お風呂と水風呂 | Miura -SAUNA-</title>
+
+    <style>
+        /* ページ全体の基本設定 */
+        body { margin: 0; font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; color: #333; background-color: #fafafa; line-height: 1.8; }
+        
+        /* ヘッダー */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; background-color: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; gap: 40px; }
+        .logo-wrap { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 40px; width: auto; }
+        .header-nav { display: flex; gap: 30px; }
+        .header-nav a { text-decoration: none; color: #333; font-size: 0.9rem; font-weight: bold; text-align: center; line-height: 1.2; }
+        .header-nav a span { display: block; font-size: 0.6rem; font-weight: normal; color: #888; margin-top: 3px; }
+
+        /* 下層ページ用のメインビジュアル */
+        .page-hero { height: 40vh; background-color: #555; background-image: url('bath-image.jpeg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center; }
+        .page-hero h1 { font-size: 2.5rem; letter-spacing: 0.1em; margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .page-hero p { font-size: 1rem; margin-top: 10px; letter-spacing: 0.1em; text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+
+        /* コンテンツエリア */
+        .content-area { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        .content-title { font-size: 1.5rem; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 40px; }
+        
+        /* 詳細用のレイアウト */
+        .detail-list { display: flex; flex-direction: column; gap: 40px; }
+        .detail-item h3 { font-size: 1.2rem; color: #222; margin-bottom: 10px; border-left: 4px solid #333; padding-left: 10px; display: flex; align-items: center; gap: 10px; }
+        .detail-item h3 span { font-size: 0.8rem; background-color: #333; color: #fff; padding: 3px 8px; border-radius: 4px; white-space: nowrap; }
+        
+        /* ラベルの色分け */
+        .detail-item h3 span.ocean { background-color: #0056b3; } /* 海ダイブ用の濃い青 */
+        .detail-item h3 span.cold { background-color: #007BFF; }  /* 水風呂用の青 */
+        .detail-item h3 span.hot { background-color: #DC3545; }   /* 温浴用の赤 */
+        .detail-item p { color: #555; font-size: 0.95rem; }
+
+        /* 「海ダイブ」を特別に目立たせるためのボックスデザイン */
+        .detail-item.special {
+            background-color: #f0f7ff; /* 薄い青の背景 */
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #cce5ff;
+        }
+        .detail-item.special h3 {
+            border-left-color: #0056b3;
+        }
+        .detail-item.special p.lead {
+            font-weight: bold;
+            color: #0056b3;
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+
+        /* フッター */
+        footer { text-align: center; padding: 30px; background-color: #222; color: #ccc; font-size: 0.8rem; letter-spacing: 0.1em; }
+
+        /* スマホ用設定 */
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 15px 10px; gap: 15px; }
+            .header-nav { width: 100%; justify-content: center; gap: 15px; }
+            .header-nav a { font-size: 0.75rem; }
+            .header-nav a span { font-size: 0.5rem; }
+            .page-hero h1 { font-size: 2rem; }
+            .detail-item.special { padding: 20px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ヘッダー -->
+    <header>
+        <a href="index.html" class="logo-wrap">
+            <img src="MiuraSAUNA_logo.jpeg" alt="ロゴ" class="logo-img">
+        </a>
+        <nav class="header-nav">
+            <a href="facility.html">施設紹介<br><span>FACILITY</span></a>
+            <a href="sauna.html">サウナ<br><span>SAUNA</span></a>
+            <a href="bath.html">お風呂と水風呂<br><span>BATH & COLD PLUNGE</span></a>
+            <a href="priceandreserve.html">料金・予約<br><span>PRICE & RESERVE</span></a>
+        </nav>
+    </header>
+
+    <!-- 下層ページ用メインビジュアル -->
+    <section class="page-hero">
+        <div>
+            <h1>お風呂と水風呂</h1>
+            <p>BATH & COLD PLUNGE</p>
+        </div>
+    </section>
+
+    <!-- ページごとのメインコンテンツ -->
+    <section class="content-area">
+        <h2 class="content-title">極上のクールダウンと、心安らぐ温浴</h2>
+        
+        <div class="detail-list">
+            
+            <!-- 最大の特徴：海へのダイブ（目立たせる特別なデザイン） -->
+            <div class="detail-item special">
+                <h3><span class="ocean">最大の特徴</span> 目の前の海が、究極の水風呂</h3>
+                <p class="lead">サウナ室から数歩で、大自然の海へそのままダイブ！</p>
+                <p>Miura -SAUNA-でしか味わえない最大の魅力は、目の前に広がる海そのものを水風呂として楽しめることです。サウナで極限まで温まった身体を、大自然の波に委ねて一気にクールダウン。他では決して味わえない、圧倒的な開放感と野生に還るような究極の「ととのい」をお約束します。</p>
+            </div>
+
+            <!-- 通常の水風呂の特徴 -->
+            <div class="detail-item">
+                <h3><span class="cold">水風呂</span> 芯まで冷やす、こだわりの水風呂</h3>
+                <p>もちろん、施設内にも水温約15度に設定された専用の水風呂を完備しています。海に入らない方や、しっかりと温度管理された環境で引き締めたい方のために、全身を包み込む十分な深さを確保しています。</p>
+            </div>
+            
+            <!-- お風呂の特徴 -->
+            <div class="detail-item">
+                <h3><span class="hot">温浴</span> 自然を感じる癒しのお風呂</h3>
+                <p>サウナの前後や、ゆっくりと温まりたい時のための温浴スペース。波の音をBGMに、肩まで浸かってリラックスできる至福の時間を提供します。</p>
+            </div>
+
+            <!-- 動線の特徴 -->
+            <div class="detail-item">
+                <h3>こだわりの「ととのい動線」</h3>
+                <p>サウナ室を出てから、海（または水風呂）へ向かい、そのまま外気浴スペースへ。無駄なくスムーズに移動できるよう設計された完璧な動線が、ストレスフリーな体験をサポートします。</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        &copy; 2026 Miura -SAUNA-. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
