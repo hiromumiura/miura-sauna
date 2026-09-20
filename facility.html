@@ -14,7 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>施設紹介 | Miura -SAUNA-</title>
 
-    <!-- ※CSSはindex.htmlと同じものを入れています -->
     <style>
         /* ページ全体の基本設定 */
         body { margin: 0; font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; color: #333; background-color: #fafafa; line-height: 1.8; }
@@ -27,15 +26,43 @@
         .header-nav a { text-decoration: none; color: #333; font-size: 0.9rem; font-weight: bold; text-align: center; line-height: 1.2; }
         .header-nav a span { display: block; font-size: 0.6rem; font-weight: normal; color: #888; margin-top: 3px; }
 
-        /* 下層ページ用のメインビジュアル（高さを少し低く設定） */
+        /* 下層ページ用のメインビジュアル */
         .page-hero { height: 40vh; background-color: #555; background-image: url('sauna-ocean.jpeg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center; }
         .page-hero h1 { font-size: 2.5rem; letter-spacing: 0.1em; margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
         .page-hero p { font-size: 1rem; margin-top: 10px; letter-spacing: 0.1em; text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
 
         /* コンテンツエリア */
-        .content-area { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
-        .content-title { font-size: 1.5rem; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 30px; }
+        .content-area { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        .content-title { font-size: 1.5rem; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 30px; text-align: center; }
+        .content-intro { text-align: center; margin-bottom: 50px; color: #555; }
         
+        /* 設備ギャラリー（6つの写真スペース） */
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* PCでは横に2つ並べる */
+            gap: 40px; /* アイテム間の隙間 */
+        }
+        .facility-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px; /* 角を少し丸くして柔らかい印象に */
+            margin-bottom: 15px;
+            background-color: #e0e0e0; /* 画像が無い時のダミー色 */
+        }
+        .facility-item h3 {
+            font-size: 1.2rem;
+            margin: 0 0 10px 0;
+            color: #222;
+            border-left: 3px solid #333;
+            padding-left: 10px;
+        }
+        .facility-item p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
         /* フッター */
         footer { text-align: center; padding: 30px; background-color: #222; color: #ccc; font-size: 0.8rem; letter-spacing: 0.1em; }
 
@@ -46,12 +73,31 @@
             .header-nav a { font-size: 0.75rem; }
             .header-nav a span { font-size: 0.5rem; }
             .page-hero h1 { font-size: 2rem; }
+            
+            /* スマホでは縦1列にする */
+            .facility-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* Cookie同意ポップアップ */
+        .cookie-consent { position: fixed; bottom: -100%; left: 0; width: 100%; background-color: rgba(34, 34, 34, 0.95); color: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; z-index: 9999; font-size: 0.85rem; transition: bottom 0.5s ease-in-out; box-shadow: 0 -2px 10px rgba(0,0,0,0.2); }
+        .cookie-consent.show { bottom: 0; }
+        .cookie-consent p { margin: 0; flex: 1; padding-right: 20px; line-height: 1.5; letter-spacing: 0.05em; }
+        .cookie-btn { padding: 10px 30px; border: none; cursor: pointer; font-weight: bold; border-radius: 30px; letter-spacing: 0.1em; transition: opacity 0.3s; }
+        .cookie-btn:hover { opacity: 0.8; }
+        .cookie-accept { background-color: #fff; color: #333; }
+        @media (max-width: 768px) {
+            .cookie-consent { flex-direction: column; text-align: center; gap: 15px; padding: 20px; }
+            .cookie-consent p { padding-right: 0; font-size: 0.75rem; }
+            .cookie-btn { width: 100%; padding: 12px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ヘッダー (index.htmlに戻れるようにロゴのリンクを設定) -->
+    <!-- ヘッダー -->
     <header>
         <a href="index.html" class="logo-wrap">
             <img src="MiuraSAUNA_logo.jpeg" alt="ロゴ" class="logo-img">
@@ -75,108 +121,82 @@
     <!-- ページごとのメインコンテンツ -->
     <section class="content-area">
         <h2 class="content-title">自然と調和する、極上のリトリート空間</h2>
-        <p>ここに施設全体の説明や、こだわりのポイント、館内見取り図などを入れていきます。</p>
-        <p>テキストや画像を追加して、充実したページにしていきましょう。</p>
-        <!-- ここに画像を入れることもできます -->
-        <!-- <img src="facility-image.jpeg" alt="施設内観" style="width: 100%; margin-top: 20px;"> -->
+        <p class="content-intro">
+            Miura -SAUNA- は、海と空に包まれたプライベートな空間で、日常の喧騒から離れた特別な時間を提供します。<br>
+            こだわりのサウナ設備と、快適にお過ごしいただける館内のご案内です。
+        </p>
+
+        <!-- 6つの設備ギャラリー -->
+        <div class="facility-grid">
+            
+            <!-- 設備1 -->
+            <div class="facility-item">
+                <img src="facility-sauna.jpeg" alt="メインサウナ室">
+                <h3>メインサウナ室</h3>
+                <p>大きな窓から三浦の海を一望できる、開放感あふれるサウナ室。本格的なストーブを完備し、お好みの香りでセルフロウリュをお楽しみいただけます。</p>
+            </div>
+
+            <!-- 設備2 -->
+            <div class="facility-item">
+                <img src="facility-plunge.jpeg" alt="海へのダイブ・水風呂">
+                <h3>海へのダイブ・専用水風呂</h3>
+                <p>サウナの後は、目の前の海へそのままダイブして極限のクールダウンを。もちろん、施設内にも水温約15度の深い専用水風呂を完備しています。</p>
+            </div>
+
+            <!-- 設備3 -->
+            <div class="facility-item">
+                <img src="sauna-wave.jpeg" alt="外気浴スペース">
+                <h3>外気浴スペース</h3>
+                <p>海風と波の音を全身で感じられるウッドデッキ。インフィニティチェアに身をゆだねれば、大自然と一体化するような究極のととのいが訪れます。</p>
+            </div>
+
+            <!-- 設備4 -->
+            <div class="facility-item">
+                <img src="facility-shower.jpeg" alt="シャワールーム">
+                <h3>シャワールーム</h3>
+                <p>サウナの前後や海から上がった後にご利用いただける、清潔なシャワールーム。高品質なシャンプーやボディーソープなどのアメニティもご用意しております。</p>
+            </div>
+
+            <!-- 設備5 -->
+            <div class="facility-item">
+                <img src="facility-powder.jpeg" alt="パウダールーム">
+                <h3>パウダールーム（更衣室）</h3>
+                <p>広々とした清潔感のあるパウダールーム。ドライヤーや各種スキンケア用品を取り揃えており、女性のお客様も手ぶらで快適にご利用いただけます。</p>
+            </div>
+
+            <!-- 設備6 -->
+            <div class="facility-item">
+                <img src="facility-lounge.jpeg" alt="ラウンジスペース">
+                <h3>ラウンジスペース</h3>
+                <p>ととのった後の余韻を楽しむリラックススペース。水分補給のためのドリンクを用意しており、海を眺めながらゆったりとしたひとときをお過ごしください。</p>
+            </div>
+
+        </div>
     </section>
 
     <!-- フッター -->
     <footer>
         &copy; 2026 Miura -SAUNA-. All Rights Reserved.
     </footer>
-<!-- ====================================
-         Cookie同意ポップアップ
-         ==================================== -->
-    <style>
-        .cookie-consent {
-            position: fixed;
-            bottom: -100%; /* 初期状態は画面外（下）に隠す */
-            left: 0;
-            width: 100%;
-            background-color: rgba(34, 34, 34, 0.95);
-            color: #fff;
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-sizing: border-box;
-            z-index: 9999;
-            font-size: 0.85rem;
-            transition: bottom 0.5s ease-in-out;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
-        }
-        .cookie-consent.show {
-            bottom: 0; /* クラスが付いたら画面下部にスッと上がる */
-        }
-        .cookie-consent p { 
-            margin: 0; 
-            flex: 1; 
-            padding-right: 20px; 
-            line-height: 1.5; 
-            letter-spacing: 0.05em;
-        }
-        .cookie-btn { 
-            padding: 10px 30px; 
-            border: none; 
-            cursor: pointer; 
-            font-weight: bold; 
-            border-radius: 30px; 
-            letter-spacing: 0.1em; 
-            transition: opacity 0.3s; 
-        }
-        .cookie-btn:hover { 
-            opacity: 0.8; 
-        }
-        .cookie-accept { 
-            background-color: #fff; 
-            color: #333; 
-        }
-        
-        /* スマホ向けの設定 */
-        @media (max-width: 768px) {
-            .cookie-consent { 
-                flex-direction: column; 
-                text-align: center; 
-                gap: 15px; 
-                padding: 20px; 
-            }
-            .cookie-consent p { 
-                padding-right: 0; 
-                font-size: 0.75rem; 
-            }
-            .cookie-btn { 
-                width: 100%; 
-                padding: 12px; 
-            }
-        }
-    </style>
 
+    <!-- Cookie同意ポップアップ -->
     <div id="cookie-consent" class="cookie-consent">
         <p>当サイトでは、利用状況の分析や利便性向上のためにCookie（Googleアナリティクス）を使用しています。サイトの閲覧を続けることで、Cookieの使用に同意したものとみなされます。</p>
         <button id="cookie-accept" class="cookie-btn cookie-accept">同意する</button>
     </div>
-
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const cookieConsent = document.getElementById("cookie-consent");
             const acceptBtn = document.getElementById("cookie-accept");
-
-            // ブラウザのローカルストレージに「同意済み」の記録がない場合のみポップアップを表示
             if (!localStorage.getItem("cookieConsentAccepted")) {
-                setTimeout(() => {
-                    cookieConsent.classList.add("show");
-                }, 1000); // ページ表示から1秒後にフワッと出す
+                setTimeout(() => { cookieConsent.classList.add("show"); }, 1000);
             }
-
-            // 同意ボタンが押された時の処理
             acceptBtn.addEventListener("click", function() {
-                // ブラウザに「同意した」という記録を保存（次回以降出さないため）
                 localStorage.setItem("cookieConsentAccepted", "true");
-                // ポップアップを下に隠す
                 cookieConsent.classList.remove("show");
             });
         });
     </script>
+
 </body>
 </html>
